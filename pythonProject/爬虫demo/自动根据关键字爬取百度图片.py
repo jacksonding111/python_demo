@@ -18,8 +18,8 @@ if __name__ == '__main__':
     os.mkdir(current_path + '\\' + keyword)  # 在当前路径下创建新文件夹
     for num in range(0, 3):  # 一次请求返回30张图，此处循环3次，爬取 90 张图片
         # 将输入的关键字嵌进发送请求的url中
-        url = 'https://image.baidu.com/search/acjson?tn=resultjson_com&ipn=rj&ct=201326592&is=&fp=result&cl=2&lm=-1&ie=utf-8&oe=utf-8&st=-1&z=&ic=0&word=' + keyword + '&face=0&istype=2&nc=1&pn=' + str(
-            num * 30) + '&rn=30'
+        url = 'https://image.baidu.com/search/acjson?tn=resultjson_com&ipn=rj&ct=201326592&is=&fp=result&cl=2&lm=-1&ie=utf-8&oe=utf-8&st=-1&z=&ic=0&word=' \
+              + keyword + '&face=0&istype=2&nc=1&pn=' + str(num * 30) + '&rn=30'
         response = requests.get(url=url, headers=headers).json()
         print(len(response['data']) - 1)
         for index in range(len(response['data']) - 1):
